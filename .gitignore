@@ -1,0 +1,7 @@
+.env
+.venv
+log.txt
+test_df.py
+__pycache__/
+data/weather.db
+.DS_Store
