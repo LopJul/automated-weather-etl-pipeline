@@ -41,11 +41,20 @@ pip install pandas requests python-dotenv
 ```
 
 3. Add your OpenweatherMap API key to a .env file:
-   OPENWEATHER_API_KEY = your_api_key_here
+   OPENWEATHER_API_KEY = your_api_key
+
 4. Run the pipeline manually:
    python main.py
 
 Optional: Set up cron to run the pipeline automatically on a schedule
+
+### Cron Setup Example
+
+To run the pipeline automatically every day at 8 am:
+
+```cron
+8 * * * * /Users/yourusername/weather-api-data/.venv/bin/python /Users/yourusername/weather-api-data/main.py >> /Users/yourusername/weather-api-data/log.txt 2>&1
+```
 
 ## Key Learnings
 
