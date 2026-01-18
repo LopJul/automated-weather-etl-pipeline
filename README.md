@@ -2,15 +2,15 @@
 
 ## Project Description
 
-An end-to-end ETL pipeline that automatically fetches weather data from the OpenWeatherMap API, transforms it with Python and pandas, and loads it into a SQLite database. The pipeline is scheduled with cron for automated updates.
+An end-to-end ETL pipeline that automatically fetches weather data from the OpenWeatherMap API, transforms it using Python and pandas, and loads it into a SQLite database. The pipeline is scheduled with cron to enable automated and regular updates.
 
-The goal of this project was to implement learning from courses and gain hands-on experience with automated data pipelines, working with APIs, and manipulating data using Python and pandas.
+The goal of this project was to apply concepts learned from courses and gain hands-on experience in building automated data pipelines, working with external APIs, and transforming data using Python and pandas.
 
 ## Features
 
-- **Data Extraction**: Fetches real-time weather data for Helsinki using OpenWeatherMap API
+- **Data Extraction**: Fetches real-time weather data for Helsinki using the OpenWeatherMap API
 - **Data Transformation**: Converts JSON data into a pandas DataFrame
-- **Data Loading**: Inserts data into a SQLite database with duplicate prevention (UNIQUE(timestamp_utc, city) and INSERT OR IGNORE)
+- **Data Loading**: Inserts data into a SQLite database with duplicate prevention (`UNIQUE(timestamp_utc, city)` and `INSERT OR IGNORE`)
 - **Automation**: Cron setup for automatic scheduled runs
 - **Secure Handling**: API key is stored in a .env file (not included in the GitHub repository)
 
@@ -20,7 +20,7 @@ The goal of this project was to implement learning from courses and gain hands-o
 - Pandas
 - SQLite
 - Requests
-- Python dotenv
+- python-dotenv
 - Cron (macOS/Linux)
 
 ## Installation
@@ -33,6 +33,7 @@ The goal of this project was to implement learning from courses and gain hands-o
 
 ```bash
 git clone https://github.com/LopJul/automated-weather-etl-pipeline.git
+cd automated-weather-etl-pipeline
 ```
 
 2. **Install dependencies:**
@@ -41,8 +42,11 @@ git clone https://github.com/LopJul/automated-weather-etl-pipeline.git
 pip install pandas requests python-dotenv
 ```
 
-3. **Add your OpenweatherMap API key to a .env file:**  
-   OPENWEATHER_API_KEY = your_personal_api_key
+3. **Add your OpenweatherMap API key to a .env file:**
+
+```env
+OPENWEATHER_API_KEY=your_personal_api_key
+```
 
 4. **Run the pipeline manually:**  
    python main.py
@@ -59,7 +63,7 @@ To run the pipeline automatically every day at 08:00, add the following cron job
 
 - Update the paths to match your local project directory
 
-- `> > log.txt 2>&1` ensures that both **successful runs and error messages** are saved to `log.txt` for monitoring and debugging
+- `>> log.txt 2>&1` ensures that both **successful runs and error messages** are saved to `log.txt` for monitoring and debugging
 
 ## Key Learnings
 
@@ -78,10 +82,10 @@ To run the pipeline automatically every day at 08:00, add the following cron job
 
 ## Screenshots
 
-Below is a screenshot of test data in the SQLite database. This test data was fetched automatically every 5 minutes during testing.
+Below is a screenshot of test data in the SQLite database. The data was fetched automatically every 5 minutes during testing:
 
 ![Test Data in SQLite database](images/sqlite_test.png)
 
-Below is a screenshot of the most recent 10 rows fetched from SQLite database. This screenshot was taken in VSCode terminal during testing.
+Below is a screenshot of the most recent 10 rows fetched from the SQLite database in the VS Code terminal during testing:
 
-![Recent 10 rows in SQLite database (VSCode terminal)](images/recent_10_rows.png)
+![Recent 10 rows in SQLite database (VS Code terminal)](images/recent_10_rows.png)
