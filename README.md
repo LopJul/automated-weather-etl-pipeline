@@ -4,11 +4,15 @@
 
 An end-to-end ETL pipeline that automatically fetches weather data from the OpenWeatherMap API, transforms it using Python and pandas, and loads it into a SQLite database. The pipeline is scheduled with cron to enable automated and regular updates.
 
-The goal of this project was to apply concepts learned from courses and gain hands-on experience in building automated data pipelines, working with external APIs, and transforming data using Python and pandas.
+This project was created to apply concepts learned from courses and gain hands-on experience in building automated data pipelines, working with external APIs, and transforming data using Python and pandas.
 
 ## Features
 
-- **Data Extraction**: Fetches real-time weather data for Helsinki using the OpenWeatherMap API
+- **Data Extraction**: Fetches real-time weather data for Helsinki using the [OpenWeatherMap API](https://openweathermap.org/api)
+
+  ![Extracted API fields](images/api_fields.png)
+  _Screenshot from VS Code showing the fields extracted from the OpenWeatherMap API response_
+
 - **Data Transformation**: Converts JSON data into a pandas DataFrame
 - **Data Loading**: Inserts data into a SQLite database with duplicate prevention (`UNIQUE(timestamp_utc, city)` and `INSERT OR IGNORE`)
 - **Automation**: Cron setup for automatic scheduled runs
@@ -22,6 +26,12 @@ The goal of this project was to apply concepts learned from courses and gain han
 - Requests
 - python-dotenv
 - Cron (macOS/Linux)
+
+## API Source
+
+Weather data in this project is fetched from the [OpenWeatherMap API](https://openweathermap.org/api), specifically the "Current Weather Data" endpoint.
+
+A free API key is required, and the full documentation provides details on available fields, response structure, and usage limits.
 
 ## Installation
 
@@ -48,8 +58,11 @@ pip install pandas requests python-dotenv
 OPENWEATHER_API_KEY=your_personal_api_key
 ```
 
-4. **Run the pipeline manually:**  
+4. **Run the pipeline manually:**
+
+```bash
    python main.py
+```
 
 5. **Optional: Set up cron to run the pipeline automatically on a schedule:**
 
