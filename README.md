@@ -41,7 +41,7 @@ git clone https://github.com/LopJul/automated-weather-etl-pipeline.git
 pip install pandas requests python-dotenv
 ```
 
-3. **Add your OpenweatherMap API key to a .env file:**
+3. **Add your OpenweatherMap API key to a .env file:**  
    OPENWEATHER_API_KEY = your_personal_api_key
 
 4. **Run the pipeline manually:**  
@@ -49,7 +49,7 @@ pip install pandas requests python-dotenv
 
 5. **Optional: Set up cron to run the pipeline automatically on a schedule:**
 
-- To run the pipeline automatically every day at 08:00, add the following cron job:
+To run the pipeline automatically every day at 08:00, add the following cron job:
 
 ```cron
 0 8 * * * /Users/yourusername/weather-api-data/.venv/bin/python /Users/yourusername/weather-api-data/main.py >> /Users/yourusername/weather-api-data/log.txt 2>&1
