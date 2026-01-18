@@ -61,7 +61,7 @@ OPENWEATHER_API_KEY=your_personal_api_key
 4. **Run the pipeline manually:**
 
 ```bash
-   python main.py
+python main.py
 ```
 
 5. **Optional: Set up cron to run the pipeline automatically on a schedule:**
