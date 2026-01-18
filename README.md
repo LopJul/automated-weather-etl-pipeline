@@ -25,29 +25,31 @@ The goal of this project was to implement learning from courses and gain hands-o
 
 ## Installation
 
-**Note** The SQLite database is **not included** in this repository. It will be created automatically when you first run the pipeline.
+**Note**:
 
-1. Clone the repository:
+- The SQLite database is **not included** in this repository. It will be created automatically when you first run the pipeline.
+
+1. **Clone the repository:**
 
 ```bash
 git clone https://github.com/LopJul/automated-weather-etl-pipeline.git
 ```
 
-2. Install dependencies:
+2. **Install dependencies:**
 
 ```bash
 pip install pandas requests python-dotenv
 ```
 
-3. Add your OpenweatherMap API key to a .env file:
+3. **Add your OpenweatherMap API key to a .env file:**
    OPENWEATHER_API_KEY = your_personal_api_key
 
-4. Run the pipeline manually:
+4. **Run the pipeline manually:**  
    python main.py
 
-5. Optional: Set up cron to run the pipeline automatically on a schedule:
+5. **Optional: Set up cron to run the pipeline automatically on a schedule:**
 
-To run the pipeline automatically every day at 08:00, add the following cron job:
+- To run the pipeline automatically every day at 08:00, add the following cron job:
 
 ```cron
 0 8 * * * /Users/yourusername/weather-api-data/.venv/bin/python /Users/yourusername/weather-api-data/main.py >> /Users/yourusername/weather-api-data/log.txt 2>&1
