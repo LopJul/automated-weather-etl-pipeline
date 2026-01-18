@@ -4,7 +4,7 @@
 
 An end-to-end ETL pipeline that automatically fetches weather data from the OpenWeatherMap API, transforms it with Python and pandas, and loads it into a SQLite database. The pipeline is scheduled with cron for automated updates.
 
-The goal of this project was to gain hands-on experience with automated data pipelines, working with APIs, and manipulating data using Python and pandas.
+The goal of this project was to implement learning from courses and gain hands-on experience with automated data pipelines, working with APIs, and manipulating data using Python and pandas.
 
 ## Features
 
@@ -12,7 +12,7 @@ The goal of this project was to gain hands-on experience with automated data pip
 - **Data Transformation**: Converts JSON data into a pandas DataFrame
 - **Data Loading**: Inserts data into a SQLite database with duplicate prevention (UNIQUE(timestamp_utc, city) and INSERT OR IGNORE)
 - **Automation**: Cron setup for automatic scheduled runs
-- **Secure Handling**: API key is stored in a .env file (not in the GitHub repository)
+- **Secure Handling**: API key is stored in a .env file (not included in the GitHub repository)
 
 ## Technologies Used
 
@@ -31,7 +31,6 @@ The goal of this project was to gain hands-on experience with automated data pip
 
 ```bash
 git clone https://github.com/LopJul/automated-weather-etl-pipeline.git
-cd weather-etl-pipeline
 ```
 
 2. Install dependencies:
@@ -41,20 +40,24 @@ pip install pandas requests python-dotenv
 ```
 
 3. Add your OpenweatherMap API key to a .env file:
-   OPENWEATHER_API_KEY = your_api_key
+   OPENWEATHER_API_KEY = your_personal_api_key
 
 4. Run the pipeline manually:
    python main.py
 
-Optional: Set up cron to run the pipeline automatically on a schedule
+5. Optional: Set up cron to run the pipeline automatically on a schedule:
 
-### Cron Setup Example
-
-To run the pipeline automatically every day at 8 am:
+To run the pipeline automatically every day at 08:00, add the following cron job:
 
 ```cron
-8 * * * * /Users/yourusername/weather-api-data/.venv/bin/python /Users/yourusername/weather-api-data/main.py >> /Users/yourusername/weather-api-data/log.txt 2>&1
+0 8 * * * /Users/yourusername/weather-api-data/.venv/bin/python /Users/yourusername/weather-api-data/main.py >> /Users/yourusername/weather-api-data/log.txt 2>&1
 ```
+
+**Note**:
+
+- Update the paths to match your local project directory
+
+- `> > log.txt 2>&1` ensures that both **successful runs and error messages** are saved to `log.txt` for monitoring and debugging
 
 ## Key Learnings
 
