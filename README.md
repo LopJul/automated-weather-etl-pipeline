@@ -2,7 +2,7 @@
 
 ## Project Description
 
-An end-to-end ETL pipeline that automatically fetches weather data from the OpenWeatherMap API, transforms it using Python and pandas, and loads it into a SQLite database. The pipeline is scheduled with cron to enable automated and regular updates.
+A learning-focused ETL pipeline that fetches weather data from the OpenWeatherMap API, transforms it using Python and pandas, and loads it into a SQLite database. The pipeline is scheduled with cron to enable automated and regular updates.
 
 This project was created to apply concepts learned from courses and gain hands-on experience in building automated data pipelines, working with external APIs, and transforming data using Python and pandas.
 
